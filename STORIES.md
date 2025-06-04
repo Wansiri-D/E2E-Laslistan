@@ -1,5 +1,3 @@
-User Stories
-
 Navigation:
 
 As a user, I want to navigate between different views so I can access all features
