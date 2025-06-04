@@ -1,0 +1,23 @@
+{
+  "name": "e2e-laslistan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wansiri-D/E2E-Laslistan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Wansiri-D/E2E-Laslistan/issues"
+  },
+  "homepage": "https://github.com/Wansiri-D/E2E-Laslistan#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.29"
+  }
+}
