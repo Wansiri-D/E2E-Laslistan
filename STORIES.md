@@ -14,8 +14,9 @@ As a user, I want to add books from catalog to my reading list
 
 Add Book View:
 
-As a user, I want to add new books manually
-As a user, I want to provide book details (title, author, etc.)
+As a user, I want to click Add button to save my book
+As a user, I want my book to appear in My Books after adding
+As a user, I want to see clear input fields initially
 
 ---------------------------------------------------------------------------------------
 
@@ -23,6 +24,6 @@ My Books View:
 
 As a user, I want to see my saved books
 As a user, I want to remove books from my list
-As a user, I want to manage my reading list
+As a user, I want to add my reading list
 
 ---------------------------------------------------------------------------------------

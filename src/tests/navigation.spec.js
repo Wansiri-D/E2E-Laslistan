@@ -69,3 +69,5 @@ test.describe("Navigation Between Views", () => {
             .toBeVisible(); // Title input should be present in Add Book view
     });
 });
+
+    // catalog
