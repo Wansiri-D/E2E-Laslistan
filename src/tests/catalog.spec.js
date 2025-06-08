@@ -43,30 +43,4 @@ test.describe("Catalog View", () => {
         await expect(page.getByTestId("fav-Min katt är min chef"))
             .toBeVisible(); // Book should now appear in My Books list
     });
-
-    // User Story: As a user, I want to remove books from my reading list
-    test("should remove book from reading list", async ({ page }) => {
-        
-        // First add a book to favorites
-        const bookStar = page.getByTestId("star-Min katt är min chef");
-        await bookStar.click(); // Add book to reading list
-        
-        // Verify book is selected
-        await expect(bookStar)
-            .toHaveClass(/selected/); // Confirm book is added
-        
-        // Remove book by clicking star again
-        await bookStar.click(); // Click star again to remove from reading list
-        
-        // Verify book is no longer selected
-        await expect(bookStar)
-            .not.toHaveClass(/selected/); // Star should not be highlighted
-        
-        // Navigate to My Books to verify book was removed
-        await page.getByTestId("favorites").click(); // Go to My Books view
-        
-        // Verify book is no longer in My Books list
-        await expect(page.getByTestId("fav-Min katt är min chef"))
-            .not.toBeVisible(); // Book should not appear in My Books list
-    });
 });

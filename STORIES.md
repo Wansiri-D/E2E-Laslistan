@@ -14,8 +14,8 @@ As a user, I want to add books from catalog to my reading list
 
 Add Book View:
 
-As a user, I want to click Add button to save my book
-As a user, I want my book to appear in My Books after adding
+As a user, I want to see input fields when I go to Add Book page
+As a user, I want to type in the title field
 As a user, I want to see clear input fields initially
 
 ---------------------------------------------------------------------------------------
