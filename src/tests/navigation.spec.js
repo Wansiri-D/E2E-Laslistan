@@ -12,6 +12,10 @@ test.describe("Navigation Between Views", () => {
         await expect(page.getByTestId("catalog"))
             .toBeDisabled(); // Disabled button indicates current active view
         
+        // Verify Catalog content is visible
+        await expect(page.locator(".catalog"))
+            .toBeVisible(); // Catalog section should be displayed
+        
         // Test 2: Navigate to Add Book view
         await page.getByTestId("add-book").click(); // Click the Add Book navigation button
         
@@ -29,6 +33,17 @@ test.describe("Navigation Between Views", () => {
         // Verify My Books view is now active
         await expect(page.getByTestId("favorites"))
             .toBeDisabled(); // Button should be disabled when view is active
+        
+        // Test 4: Navigate back to Catalog view
+        await page.getByTestId("catalog").click(); // Click the Catalog navigation button
+        
+        // Verify Catalog view is active again
+        await expect(page.getByTestId("catalog"))
+            .toBeDisabled(); // Catalog button should be disabled when view is active
+        
+        // Verify Catalog content is visible again
+        await expect(page.locator(".catalog"))
+            .toBeVisible(); // Catalog section should be displayed again
     });
 
     // User Story: As a user, I want clear navigation indicators so I know which view I'm currently in
@@ -51,23 +66,51 @@ test.describe("Navigation Between Views", () => {
             .toBeDisabled(); // Add book button should be disabled (active)
         await expect(page.getByTestId("favorites"))
             .toBeEnabled(); // Favorites button should be clickable
+        
+        // Switch to My Books view and verify navigation states
+        await page.getByTestId("favorites").click();
+        
+        await expect(page.getByTestId("catalog"))
+            .toBeEnabled(); // Catalog button should be clickable
+        await expect(page.getByTestId("add-book"))
+            .toBeEnabled(); // Add book button should be clickable
+        await expect(page.getByTestId("favorites"))
+            .toBeDisabled(); // Favorites button should be disabled (active)
+        
+        // Switch back to Catalog view and verify navigation states
+        await page.getByTestId("catalog").click();
+        
+        await expect(page.getByTestId("catalog"))
+            .toBeDisabled(); // Catalog should be disabled (active) again
+        await expect(page.getByTestId("add-book"))
+            .toBeEnabled(); // Other buttons should be enabled again
+        await expect(page.getByTestId("favorites"))
+            .toBeEnabled();
     });
 
     // User Story: As a user, I want to verify that each view displays appropriate content
     test("should display correct content for each view", async ({ page }) => {
         
-        // Verify My Books view shows empty list initially
+        // Test 1: Verify Catalog view content
+        await expect(page.locator(".catalog"))
+            .toBeVisible(); // Catalog section should be visible initially
+        
+        // Test 2: Navigate to My Books view and verify content
         await page.getByTestId("favorites").click(); // Navigate to My Books
         
         await expect(page.getByTestId("book-list"))
             .toBeEmpty(); // Book list should be empty for new users
         
-        // Navigate back to Add Book to verify input fields exist
+        // Test 3: Navigate to Add Book view and verify content
         await page.getByTestId("add-book").click();
         
         await expect(page.getByTestId("add-input-title"))
             .toBeVisible(); // Title input should be present in Add Book view
+        
+        // Test 4: Navigate back to Catalog and verify content again
+        await page.getByTestId("catalog").click();
+        
+        await expect(page.locator(".catalog"))
+            .toBeVisible(); // Catalog section should be visible again
     });
 });
-
-    // catalog

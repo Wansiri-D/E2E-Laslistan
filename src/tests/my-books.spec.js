@@ -1,9 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-// Test suite for My Books functionality
 test.describe("My Books View", () => {
-    
-    // Set up: Navigate to the application before each test
     test.beforeEach(async ({ page }) => {
         await page.goto("https://tap-ht24-testverktyg.github.io/exam-template/");
     });
